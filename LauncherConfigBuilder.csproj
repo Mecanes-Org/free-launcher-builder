@@ -1,0 +1,35 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+	<PropertyGroup>
+		<OutputType>WinExe</OutputType>
+		<TargetFramework>net8.0-windows</TargetFramework>
+
+		<Nullable>enable</Nullable>
+
+		<!-- Disable automatic using directives to avoid
+             WPF / Windows Forms namespace conflicts -->
+		<ImplicitUsings>disable</ImplicitUsings>
+
+		<UseWPF>true</UseWPF>
+
+		<!-- Only needed for ColorDialog -->
+		<UseWindowsForms>true</UseWindowsForms>
+
+		<SelfContained>true</SelfContained>
+		<RuntimeIdentifier>win-x64</RuntimeIdentifier>
+		<PublishSingleFile>true</PublishSingleFile>
+		<IncludeNativeLibrariesForSelfExtract>true</IncludeNativeLibrariesForSelfExtract>
+		<!-- Do not generate the PDB for distribution -->
+		<DebugType>None</DebugType>
+		<DebugSymbols>false</DebugSymbols>
+	</PropertyGroup>
+
+	<ItemGroup>
+	  <None Remove="Templates\FreeLauncher.exe" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <EmbeddedResource Include="Templates\FreeLauncher.exe" />
+	</ItemGroup>
+
+</Project>
