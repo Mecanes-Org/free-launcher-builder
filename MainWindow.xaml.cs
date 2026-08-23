@@ -263,15 +263,15 @@ namespace FreeLauncherBuilder
                 return false;
             }
 
-            if (string.IsNullOrWhiteSpace(
-                GameNameTextBox.Text))
-            {
-                ShowValidationError(
-                    "Game name cannot be empty."
-                );
+            // if the game name is empty, show a validation error
+            //if (string.IsNullOrWhiteSpace( GameNameTextBox.Text) )
+            //{
+            //    ShowValidationError(
+            //        "Game name cannot be empty."
+            //    );
 
-                return false;
-            }
+            //    return false;
+            //}
 
             if (string.IsNullOrWhiteSpace(
                 GameExecutableTextBox.Text))
