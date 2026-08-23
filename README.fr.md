@@ -4,6 +4,8 @@ Une application **WPF Windows** qui permet de **configurer et générer un lance
 
 Au lieu de modifier manuellement des fichiers de configuration JSON, vous remplissez une interface graphique et le générateur produit un **unique EXE portable** qui lance votre jeu — configuration incluse.
 
+Chaque lanceur généré fonctionne avec le runtime [**Free Launcher**](https://github.com/Mecanes-Org/free-launcher) — le projet autonome qui alimente l'EXE produit par ce générateur.
+
 ## Fonctionnalités
 
 - **Lanceur personnalisable** — configurez le titre de la fenêtre, le nom du jeu et la police d'affichage.
@@ -98,7 +100,7 @@ La configuration JSON générée (`LauncherConfig`) comprend :
 
 ## Licence
 
-Projet personnel — aucune licence spécifiée.
+Publié sous la [licence MIT](LICENSE).
 
 ---
 

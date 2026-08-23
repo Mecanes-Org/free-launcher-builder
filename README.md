@@ -4,6 +4,8 @@ A Windows WPF application that lets you **configure and generate a fully standal
 
 Instead of manually editing JSON configuration files, you fill in a graphical interface and the builder produces a **single portable EXE** that launches your game — configuration included.
 
+Every generated launcher runs on the [**Free Launcher**](https://github.com/Mecanes-Org/free-launcher) runtime — the standalone project that powers the EXE produced by this builder.
+
 ## Features
 
 - **Customizable launcher** — configure the window title, game name and display font.
@@ -98,7 +100,7 @@ The generated JSON configuration (`LauncherConfig`) includes:
 
 ## License
 
-Personal project — no license specified.
+Released under the [MIT License](LICENSE).
 
 ---
 
