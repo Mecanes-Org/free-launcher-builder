@@ -2,7 +2,7 @@
 using System.Data;
 using System.Windows;
 
-namespace LauncherConfigBuilder
+namespace FreeLauncherBuilder
 {
     /// <summary>
     /// Interaction logic for App.xaml

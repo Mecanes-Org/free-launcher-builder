@@ -1,4 +1,4 @@
-# Launcher Config Builder
+# Free Launcher Builder
 
 A Windows WPF application that lets you **configure and generate a fully standalone game launcher** without writing a single line of code.
 
@@ -70,13 +70,13 @@ YourGame/
 ## Project structure
 
 ```
-LauncherConfigBuilder/
+FreeLauncherBuilder/
 ├── App.xaml / App.xaml.cs        # Application entry point
 ├── MainWindow.xaml               # Builder UI
 ├── MainWindow.xaml.cs            # Builder logic, config model & EXE generation
 ├── Templates/
 │   └── FreeLauncher.exe          # Embedded launcher template (Git LFS)
-└── LauncherConfigBuilder.csproj
+└── FreeLauncherBuilder.csproj
 ```
 
 ## Configuration model

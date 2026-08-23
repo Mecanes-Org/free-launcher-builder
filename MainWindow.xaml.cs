@@ -10,7 +10,7 @@ using System.Windows.Controls;
 using System.Windows.Media;
 
 
-namespace LauncherConfigBuilder
+namespace FreeLauncherBuilder
 {
     /// <summary>
     /// Main window of the Launcher Config Builder.
@@ -216,39 +216,27 @@ namespace LauncherConfigBuilder
 
                 GameName = GameNameTextBox.Text.Trim(),
 
-                GameNameFontFamily =
-                    GameFontComboBox.SelectedItem?.ToString()
-                    ?? "Segoe UI",
+                GameNameFontFamily = GameFontComboBox.SelectedItem?.ToString() ?? "Segoe UI",
 
-                GameExecutable =
-                    GameExecutableTextBox.Text.Trim(),
+                GameExecutable = GameExecutableTextBox.Text.Trim(),
 
-                BackgroundPath =
-                    BackgroundPathTextBox.Text.Trim(),
+                BackgroundPath = BackgroundPathTextBox.Text.Trim(),
 
-                IconPath =
-                    IconPathTextBox.Text.Trim(),
+                IconPath = IconPathTextBox.Text.Trim(),
 
-                PlayButtonText =
-                    PlayButtonTextTextBox.Text.Trim(),
+                PlayButtonText = PlayButtonTextTextBox.Text.Trim(),
 
-                PlayButtonBackground =
-                    PlayButtonBackgroundTextBox.Text.Trim(),
+                PlayButtonBackground = PlayButtonBackgroundTextBox.Text.Trim(),
 
-                PlayButtonForeground =
-                    PlayButtonForegroundTextBox.Text.Trim(),
+                PlayButtonForeground = PlayButtonForegroundTextBox.Text.Trim(),
 
-                PlayButtonBorder =
-                    PlayButtonBorderTextBox.Text.Trim(),
+                PlayButtonBorder = PlayButtonBorderTextBox.Text.Trim(),
 
-                PlayButtonHoverBackground =
-                    PlayButtonHoverBackgroundTextBox.Text.Trim(),
+                PlayButtonHoverBackground = PlayButtonHoverBackgroundTextBox.Text.Trim(),
 
-                PlayButtonHoverForeground =
-                    PlayButtonHoverForegroundTextBox.Text.Trim(),
+                PlayButtonHoverForeground = PlayButtonHoverForegroundTextBox.Text.Trim(),
 
-                PlayButtonPressedBackground =
-                    PlayButtonPressedBackgroundTextBox.Text.Trim()
+                PlayButtonPressedBackground = PlayButtonPressedBackgroundTextBox.Text.Trim()
             };
 
             return config;
@@ -481,16 +469,14 @@ namespace LauncherConfigBuilder
                 // CREATE CONFIG OBJECT
                 // -----------------------------------------------------
 
-                LauncherConfig config =
-                    CreateConfigFromUI();
+                LauncherConfig config = CreateConfigFromUI();
 
 
                 // -----------------------------------------------------
                 // COPY BACKGROUND
                 // -----------------------------------------------------
 
-                config.BackgroundPath =
-                    CopyAssetToOutput(
+                config.BackgroundPath = CopyAssetToOutput(
                         BackgroundPathTextBox.Text.Trim(),
                         outputDirectory,
                         "background"
@@ -501,8 +487,7 @@ namespace LauncherConfigBuilder
                 // COPY ICON
                 // -----------------------------------------------------
 
-                config.IconPath =
-                    CopyAssetToOutput(
+                config.IconPath = CopyAssetToOutput(
                         IconPathTextBox.Text.Trim(),
                         outputDirectory,
                         "icon"
@@ -513,8 +498,7 @@ namespace LauncherConfigBuilder
                 // COPY GAME
                 // -----------------------------------------------------
 
-                config.GameExecutable =
-                    CopyGameToOutput(
+                config.GameExecutable = CopyGameToOutput(
                         GameExecutableTextBox.Text.Trim(),
                         outputDirectory
                     );
@@ -612,8 +596,7 @@ namespace LauncherConfigBuilder
             // Create:
             //
             // OutputFolder/Assets
-            string assetsDirectory =
-                Path.Combine(outputDirectory, "Assets");
+            string assetsDirectory = Path.Combine(outputDirectory, "Assets");
 
             Directory.CreateDirectory(assetsDirectory);
 
@@ -624,30 +607,24 @@ namespace LauncherConfigBuilder
             // .png
             // .jpg
             // .ico
-            string extension =
-                Path.GetExtension(sourcePath);
+            string extension = Path.GetExtension(sourcePath);
 
 
             // Example:
             //
             // background.png
-            string finalFileName =
-                destinationName + extension;
+            string finalFileName = destinationName + extension;
 
 
             // Full destination path.
-            string destinationPath =
-                Path.Combine(
+            string destinationPath = Path.Combine(
                     assetsDirectory,
                     finalFileName
                 );
 
 
             // Avoid copying the file onto itself.
-            if (!string.Equals(
-                Path.GetFullPath(sourcePath),
-                Path.GetFullPath(destinationPath),
-                StringComparison.OrdinalIgnoreCase))
+            if (!string.Equals( Path.GetFullPath(sourcePath), Path.GetFullPath(destinationPath), StringComparison.OrdinalIgnoreCase) )
             {
                 File.Copy(
                     sourcePath,
@@ -661,10 +638,7 @@ namespace LauncherConfigBuilder
             //
             // Example:
             // Assets/background.png
-            return Path.Combine(
-                "Assets",
-                finalFileName
-            );
+            return Path.Combine( "Assets", finalFileName );
         }
 
 
@@ -722,11 +696,9 @@ namespace LauncherConfigBuilder
 
             foreach (string directory in Directory.GetDirectories(sourceDirectory))
             {
-                string directoryName =
-                    Path.GetFileName(directory);
+                string directoryName = Path.GetFileName(directory);
 
-                string destinationSubDirectory =
-                    Path.Combine(
+                string destinationSubDirectory = Path.Combine(
                         destinationDirectory,
                         directoryName
                     );
@@ -761,9 +733,7 @@ namespace LauncherConfigBuilder
         /// Returned configuration path:
         /// LastRun/LastRun.exe
         /// </summary>
-        private string CopyGameToOutput(
-            string executablePath,
-            string outputDirectory)
+        private string CopyGameToOutput( string executablePath, string outputDirectory)
         {
             // ---------------------------------------------------------
             // VALIDATE EXECUTABLE
@@ -788,8 +758,7 @@ namespace LauncherConfigBuilder
             // GET GAME DIRECTORY
             // ---------------------------------------------------------
 
-            string? sourceGameDirectory =
-                Path.GetDirectoryName(executablePath);
+            string? sourceGameDirectory = Path.GetDirectoryName(executablePath);
 
             if (string.IsNullOrWhiteSpace(sourceGameDirectory))
             {
@@ -806,33 +775,25 @@ namespace LauncherConfigBuilder
             // becomes:
             //
             // LastRun
-            string gameFolderName =
-                new DirectoryInfo(
-                    sourceGameDirectory
-                ).Name;
+            string gameFolderName = new DirectoryInfo( sourceGameDirectory ).Name;
 
 
             // ---------------------------------------------------------
             // DESTINATION
             // ---------------------------------------------------------
 
-            string destinationGameDirectory =
-                Path.Combine(
+            string destinationGameDirectory = Path.Combine(
                     outputDirectory,
                     gameFolderName
                 );
 
 
             // Prevent accidentally copying a directory into itself.
-            string sourceFullPath =
-                Path.GetFullPath(sourceGameDirectory);
+            string sourceFullPath = Path.GetFullPath(sourceGameDirectory);
 
-            string destinationFullPath =
-                Path.GetFullPath(destinationGameDirectory);
+            string destinationFullPath = Path.GetFullPath(destinationGameDirectory);
 
-            if (destinationFullPath.StartsWith(
-                sourceFullPath + Path.DirectorySeparatorChar,
-                StringComparison.OrdinalIgnoreCase))
+            if (destinationFullPath.StartsWith( sourceFullPath + Path.DirectorySeparatorChar, StringComparison.OrdinalIgnoreCase))
             {
                 throw new InvalidOperationException(
                     "The generated launcher cannot be placed inside the game directory."
@@ -854,15 +815,13 @@ namespace LauncherConfigBuilder
             // CREATE RELATIVE EXECUTABLE PATH
             // ---------------------------------------------------------
 
-            string executableFileName =
-                Path.GetFileName(executablePath);
+            string executableFileName = Path.GetFileName(executablePath);
 
             // Use '/' because it makes the JSON easier to read.
             //
             // Example:
             // LastRun/LastRun.exe
-            string relativeExecutablePath =
-                $"{gameFolderName}/{executableFileName}";
+            string relativeExecutablePath = $"{gameFolderName}/{executableFileName}";
 
 
             return relativeExecutablePath;
@@ -876,15 +835,14 @@ namespace LauncherConfigBuilder
         /// </summary>
         private void ExtractLauncherTemplate(string destinationPath)
         {
+            // Retrieve the current assembly (the builder application).
             Assembly assembly = Assembly.GetExecutingAssembly();
 
             // Get all embedded resources.
-            string[] resources =
-                assembly.GetManifestResourceNames();
+            string[] resources = assembly.GetManifestResourceNames();
 
             // Find the launcher template automatically.
-            string? resourceName =
-                resources.FirstOrDefault(resource =>
+            string? resourceName = resources.FirstOrDefault(resource =>
                     resource.EndsWith(
                         ".Templates.FreeLauncher.exe",
                         StringComparison.OrdinalIgnoreCase
@@ -902,8 +860,8 @@ namespace LauncherConfigBuilder
                 );
             }
 
-            using Stream? resourceStream =
-                assembly.GetManifestResourceStream(resourceName);
+            // Open the embedded resource stream for reading.
+            using Stream? resourceStream = assembly.GetManifestResourceStream(resourceName);
 
             if (resourceStream == null)
             {
@@ -912,8 +870,8 @@ namespace LauncherConfigBuilder
                 );
             }
 
-            using FileStream outputStream =
-                new FileStream(
+            // Create the destination file for writing.
+            using FileStream outputStream = new FileStream(
                     destinationPath,
                     FileMode.Create,
                     FileAccess.Write
@@ -936,38 +894,31 @@ namespace LauncherConfigBuilder
         /// The launcher can later read this information
         /// directly from its own executable.
         /// </summary>
-        private void EmbedConfigIntoLauncher(
-            string launcherPath,
-            LauncherConfig config)
+        private void EmbedConfigIntoLauncher(string launcherPath, LauncherConfig config)
         {
+            // Unique marker allowing the launcher to detect
             const string configMarker = "LAUNCHER_CONFIG_V1";
 
             // Convert the LauncherConfig object into JSON.
-            string json =
-                JsonSerializer.Serialize(
-                    config,
+            string json = JsonSerializer.Serialize( config,
                     new JsonSerializerOptions
                     {
                         WriteIndented = false,
-                        PropertyNamingPolicy =
-                            JsonNamingPolicy.CamelCase
+                        PropertyNamingPolicy = JsonNamingPolicy.CamelCase
                     }
                 );
 
             // Convert the JSON text to raw UTF-8 bytes.
-            byte[] jsonBytes =
-                Encoding.UTF8.GetBytes(json);
+            byte[] jsonBytes = Encoding.UTF8.GetBytes(json);
 
             // Store the JSON size.
-            byte[] jsonLengthBytes =
-                BitConverter.GetBytes(
+            byte[] jsonLengthBytes = BitConverter.GetBytes(
                     (long)jsonBytes.Length
                 );
 
             // Unique marker allowing the launcher to detect
             // where the embedded configuration ends.
-            byte[] markerBytes =
-                Encoding.UTF8.GetBytes(configMarker);
+            byte[] markerBytes = Encoding.UTF8.GetBytes(configMarker);
 
 
             // Open the generated executable

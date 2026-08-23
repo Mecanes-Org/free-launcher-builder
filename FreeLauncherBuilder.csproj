@@ -25,11 +25,18 @@
 	</PropertyGroup>
 
 	<ItemGroup>
+	  <None Remove="Images\free.ico" />
 	  <None Remove="Templates\FreeLauncher.exe" />
 	</ItemGroup>
 
 	<ItemGroup>
 	  <EmbeddedResource Include="Templates\FreeLauncher.exe" />
+	</ItemGroup>
+
+	<ItemGroup>
+	  <Resource Include="Images\free.ico">
+	    <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+	  </Resource>
 	</ItemGroup>
 
 </Project>

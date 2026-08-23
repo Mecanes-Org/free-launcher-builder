@@ -1,4 +1,4 @@
-# Launcher Config Builder
+# Free Launcher Builder
 
 Une application **WPF Windows** qui permet de **configurer et générer un lanceur de jeu entièrement autonome** sans écrire une seule ligne de code.
 
@@ -70,13 +70,13 @@ VotreJeu/
 ## Structure du projet
 
 ```
-LauncherConfigBuilder/
+FreeLauncherBuilder/
 ├── App.xaml / App.xaml.cs        # Point d'entrée de l'application
 ├── MainWindow.xaml               # Interface du générateur
 ├── MainWindow.xaml.cs            # Logique du générateur, modèle de config & génération EXE
 ├── Templates/
 │   └── FreeLauncher.exe          # Modèle de lanceur intégré (Git LFS)
-└── LauncherConfigBuilder.csproj
+└── FreeLauncherBuilder.csproj
 ```
 
 ## Modèle de configuration
