@@ -694,8 +694,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <TextBox x:Name="PlayButtonBackgroundTextBox" Style="{StaticResource InputStyle}"
-                                         Text="#99000000"
-                                         IsReadOnly="True"/>
+                                         Text="#99000000"/>
 
                                     <Button Grid.Column="1" Content="🎨" Style="{StaticResource BrowseButtonStyle}"
                                         Click="PlayButtonBackgroundColorButton_Click"/> 
@@ -714,8 +713,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <TextBox x:Name="PlayButtonForegroundTextBox" Style="{StaticResource InputStyle}"
-                                         Text="#FFFF0000"
-                                         IsReadOnly="True"/>        
+                                         Text="#FFFF0000"/>        
 
                                     <Button Grid.Column="1" Content="🎨" Style="{StaticResource BrowseButtonStyle}"
                                         Click="PlayButtonForegroundColorButton_Click"/> 
@@ -734,8 +732,7 @@
                                     </Grid.ColumnDefinitions>
 
                                     <TextBox x:Name="PlayButtonBorderTextBox" Style="{StaticResource InputStyle}"
-                                         Text="#FFFF0000"
-                                         IsReadOnly="True"/>
+                                         Text="#FFFF0000"/>
 
                                     <Button Grid.Column="1" Content="🎨"
                                         Style="{StaticResource BrowseButtonStyle}"
@@ -758,7 +755,7 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     
-                                    <TextBox x:Name="PlayButtonHoverBackgroundTextBox" Style="{StaticResource InputStyle}" Text="#CCAA0000" IsReadOnly="True"/>
+                                    <TextBox x:Name="PlayButtonHoverBackgroundTextBox" Style="{StaticResource InputStyle}" Text="#CCAA0000" />
                                     <Button Grid.Column="1" Content="🎨" Style="{StaticResource BrowseButtonStyle}" Click="PlayButtonHoverBackgroundColorButton_Click"/>
                                 
                                 </Grid>
@@ -772,7 +769,7 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     
-                                    <TextBox x:Name="PlayButtonHoverForegroundTextBox" Style="{StaticResource InputStyle}" Text="#FFFFFFFF" IsReadOnly="True"/>
+                                    <TextBox x:Name="PlayButtonHoverForegroundTextBox" Style="{StaticResource InputStyle}" Text="#FFFFFFFF" />
                                     <Button Grid.Column="1" Content="🎨" Style="{StaticResource BrowseButtonStyle}" Click="PlayButtonHoverForegroundColorButton_Click"/>
                                 
                                 </Grid>
@@ -786,7 +783,7 @@
                                         <ColumnDefinition Width="Auto"/>
                                     </Grid.ColumnDefinitions>
                                     
-                                    <TextBox x:Name="PlayButtonPressedBackgroundTextBox" Style="{StaticResource InputStyle}" Text="#FFFF0000" IsReadOnly="True"/>
+                                    <TextBox x:Name="PlayButtonPressedBackgroundTextBox" Style="{StaticResource InputStyle}" Text="#FFFF0000" />
                                     <Button Grid.Column="1" Content="🎨" Style="{StaticResource BrowseButtonStyle}" Click="PlayButtonPressedBackgroundColorButton_Click"/>
                                 
                                 </Grid>
